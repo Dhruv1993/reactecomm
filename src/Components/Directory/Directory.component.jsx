@@ -9,7 +9,7 @@ export default class Directory extends Component {
         title: "hats",
         imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
         id: 1,
-        linkUrl: "shop/hats"
+        linkUrl: "hats"
       },
       {
         title: "jackets",
@@ -39,11 +39,16 @@ export default class Directory extends Component {
       }
     ]
   };
+  /**
+   * ...otherSectionProps is a type of spreading out the other object properties in the sections above.
+   * Instead passing each property as props, we can simply do this otherwise the list will be very long incase 
+   * the porperties of the object above will increase. This is an es6 syntax
+   */
   render() {
     return (
       <div className="directory-menu">
-        {this.state.sections.map(({ title, id, imageUrl,size }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size}/>
+        {this.state.sections.map(({ id, ...otherSectionProps }) => (
+          <MenuItem key={id} {...otherSectionProps} />
         ))}
       </div>
     );

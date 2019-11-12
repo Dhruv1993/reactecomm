@@ -29,16 +29,16 @@
     background-size: cover;
   }
   &.large {
-    height: 380px;
+    height: 480px;
   }
 
-  &:first-child {
-    margin-right: 7.5px;
-  }
+  // &:first-child {
+  //   margin-right: 7.5px;
+  // }
 
-  &:last-child {
-    margin-left: 7.5px;
-  }
+  // &:last-child {
+  //   margin-left: 7.5px;
+  // }
 
   .content {
     height: 90px;
