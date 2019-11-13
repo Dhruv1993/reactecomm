@@ -2,7 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Homepage from "./Pages/HomePage/Homepage.component";
 import "./App.css";
-import Shop from './Pages/Shop/Shop.component';
+import Shop from "./Pages/Shop/Shop.component";
+import Header from "./Components/Header/Header.componenet";
 
 // const HatsPage = () => {
 //   return (
@@ -17,11 +18,11 @@ import Shop from './Pages/Shop/Shop.component';
 function App() {
   return (
     <div>
+      <Header />
       <Switch>
         <Route exact path="/" component={Homepage} />
         {/* <Route path="/hats" component={HatsPage} /> */}
         <Route path="/shop" component={Shop} />
-
       </Switch>
     </div>
   );
