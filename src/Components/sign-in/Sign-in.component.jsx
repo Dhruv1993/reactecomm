@@ -3,7 +3,7 @@ import FormInput from "../Form-input/Form-input.component";
 import "./Sign-in.styles.scss";
 import Custombutton from "../Custom-button/Custom-button.component";
 
-import { signInWithGoogle } from "../../Firebase/Firebase.utils";
+import { auth, signInWithGoogle } from "../../Firebase/Firebase.utils";
 
 class SignIn extends Component {
   state = {
@@ -11,13 +11,25 @@ class SignIn extends Component {
     password: ""
   };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
-    this.setState({ email: "", password: "" });
+
+    // destructure the email and password
+    const { email, password } = this.state;
+
+    // use signinwithemailandpassword from auth google
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   handleChange = e => {
     const { value, name } = e.target;
+
     this.setState({ [name]: value });
   };
   render() {
