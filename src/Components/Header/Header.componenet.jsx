@@ -3,7 +3,9 @@ import "./Header.styles.scss";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../Assets/crown.svg"; // syntax for importing SVG files in React
 import { auth } from "../../Firebase/Firebase.utils";
+import { connect } from "react-redux";
 
+// currentUser is now available from mapsStateToProps
 const Header = ({ currentUser }) => {
   return (
     <div className="header">
@@ -32,4 +34,10 @@ const Header = ({ currentUser }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    // user key is from the root reducer and currentUser is the state property
+    currentUser: state.user.currentUser
+  };
+};
+export default connect(mapStateToProps)(Header);
